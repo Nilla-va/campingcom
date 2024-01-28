@@ -1,0 +1,35 @@
+
+<% layout('layouts/boilerplate-halfbg') %>
+
+<div class="row">
+
+    <div class="col-xxl-1"></div>
+
+    <div class="col-md-6 col-xxl-5">
+        <!-- <div class="halfimg"></div> -->
+    </div>
+
+    <div class="col-md-6 col-xxl-5 px-3 halfform min-width-limit min-height-limit">
+
+        <h1 class="text-center">LOGIN</h1>
+
+        <form action="/login" method="POST" class="needs-validation" novalidate>
+            <div class="mb-3">
+                <label class="form-label" for="username">Username</label>
+                <input class="form-control" type="text" name="username" id="username" required>
+            </div>
+            <div class="mb-3">
+                <label class="form-label" for="password">Password</label>
+                <input class="form-control" type="password" name="password" id="password" required>
+            </div>
+            <div class="my-4 d-flex justify-content-between">
+                <a class="btn btn-success" href="/campgrounds">Cancel</a>
+                <button class="btn btn-success">Sign In</button>
+            </div>
+        </form>
+
+    </div>
+
+    <div class="col-xxl-1"></div>
+
+</div>

@@ -1,0 +1,31 @@
+
+.homemsg {
+    text-align: center;
+    color: rgb(241, 241, 241);
+    padding-top: 10vh;
+}
+.homemsg>h1 {
+    font-size: 50px;
+}
+.homemsg>p {
+    font-size: 20px;
+}
+
+.btn-home {
+    background-color: rgb(241, 241, 241);
+    height: 52px;
+    font-size: 23px;
+    padding: 7px 25px;
+    margin-top: 30px;
+}
+
+@media (max-width: 767px) {
+    .homemsg {
+        padding-top: 6vh;
+    }
+}
+@media (max-width: 400px) {
+    .homemsg {
+        padding-top: 2vh;
+    }
+}

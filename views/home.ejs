@@ -1,0 +1,25 @@
+
+    <% layout('layouts/boilerplate-fullbg') %>
+    
+    <style>
+        body {
+            width: 100vw;
+            background-image: linear-gradient(rgba(10, 65, 73, 0.6), rgba(85, 69, 45, 0.6)), url("/images/homepage<%= Math.floor(Math.random()*3) %>.jpg");
+            background-size: cover;
+            background-position: center;
+            z-index: -1;
+        }
+    </style>
+    
+    
+    <div class="row">
+    
+        <div class="col-lg-8 offset-lg-2 homemsg min-width-limit">
+            <h1><span style="font-size: 20px;">Welcome to</span><br>Camping<span style="opacity: 0.7;">.com</span></h1><br>
+            <p>All the Lorem Ipsum generators on the Internet tend to repeat predefined chunks as necessary, making this the first true generator on the Internet. It uses a dictionary of over 200 Latin words, combined with a handful of model sentence structures.</p>
+            <a class="btn btn-home" href="/campgrounds">View All Campgrounds</a>
+        </div>
+    
+    </div>
+
+

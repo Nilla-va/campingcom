@@ -1,0 +1,51 @@
+
+<% layout('layouts/boilerplate-halfbg') %>
+
+<div class="row">
+
+    <div class="col-xxl-1"></div>
+
+    <div class="col-md-6 col-xxl-5">
+        <!-- <div class="halfimg"></div> -->
+    </div>
+
+    <div class="col-md-6 col-xxl-5 px-3 min-width-limit min-height-limit halfform">
+
+        <h1 class="text-center">REGISTER</h1>
+
+        <form action="/register" method="POST" id="userForm" novalidate>
+            <div class="mb-3">
+                <label class="form-label" for="username">Username</label>
+                <input class="form-control" type="text" name="user[username]" id="username" placeholder="2~15 characters" required>
+                <div class="valid-feedback">
+                    Looks good!
+                </div>
+            </div>
+            <div class="mb-3">
+                <label class="form-label" for="email">Email</label>
+                <input class="form-control" type="email" name="user[email]" id="email" placeholder="example@email.com" required>
+                <div class="valid-feedback">
+                    Looks good!
+                </div>
+            </div>
+            <div class="mb-3">
+                <label class="form-label" for="password">Password</label>
+                <input class="form-control mb-1" type="password" name="user[password]" id="password" placeholder="8~30 characters" required>
+                <div class="valid-feedback">
+                    Looks good!
+                </div>
+            </div>
+            <div class="my-4 d-flex justify-content-between">
+                <a class="btn btn-success" href="/campgrounds">Cancel</a>
+                <button class="btn btn-success">Sign Up</button>
+            </div>
+        </form>
+
+    </div>
+
+    <div class="col-xxl-1"></div>
+
+</div>
+
+
+<script src="/javascripts/validateFormUser.js"></script>

@@ -1,0 +1,67 @@
+    
+    <% layout('layouts/boilerplate-fullbg') %>
+
+    <style>
+        label>span {
+            text-decoration: underline;
+        }
+    </style>
+
+    <div class="row">
+
+        <div class="col-md-6 offset-md-3" style="min-width: 320px; max-width: 1176px">
+
+            <%- include('../partials/flash') %>
+
+            <h1 class="text-center mb-4">Update Images</h1>
+
+            <form class="col-xxl-10 offset-xxl-1" action="/campgrounds/<%= campground._id %>/images?_method=PUT" method="POST" enctype="multipart/form-data" novalidate>
+
+                <div class="mb-3">
+                    <label class="form-label" for="images"><span>Add</span> More</label>
+                    <input class="form-control" type="file" name="image" id="images" multiple required>
+                </div>
+
+                <div class="mb-3">
+                    <label class="form-label">Check To <span>Delete</span></label>
+                    <% for (let image of campground.images) { %>
+                        <div class="mb-1">
+                            <img src="<%= image.url %>" class="rounded w-100" alt="...">
+                            <input class="form-check-input" type="checkbox" name="imagesToDelete[]" value="<%= image.filename %>" style="position: absolute; transform: translateX(-30px); z-index: 5; font-size: 25px;">
+                        </div>
+                    <% } %>
+                </div>
+
+                <div class="my-4 d-flex justify-content-between">
+                    <a class="btn btn-success" href="/campgrounds/<%= campground._id %>">Back</a>
+                    <button id="submit" class="btn btn-success">Update Images</button>
+                    <button id="uploading" class="btn btn-success" type="button" disabled hidden>
+                        <span class="spinner-border spinner-border-sm" aria-hidden="true"></span>
+                        <span role="status">Uploading...</span>
+                    </button>
+                </div>
+            </form>
+
+        </div>
+
+    </div>
+
+
+    <script src="/javascripts/uploadLimit.js"></script>
+
+    <script>
+        
+        const submit = document.getElementById('submit')
+        const uploading = document.getElementById('uploading')
+
+        submit.addEventListener('click', function () {
+
+            submit.setAttribute('hidden', true);
+            uploading.removeAttribute('hidden');
+            console.log('UPLOADING IMAGES...')
+
+        })
+
+    </script>
+
+

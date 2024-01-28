@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Camping.com</title>
+
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+    <link rel="stylesheet" href="/stylesheets/app.css" />
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Rubik">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Nunito">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Ubuntu">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Quicksand">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Noto+Sans+KR">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=IBM+Plex+Sans+KR">
+
+    <link href="https://api.mapbox.com/mapbox-gl-js/v3.1.0/mapbox-gl.css" rel="stylesheet">
+    <script src="https://api.mapbox.com/mapbox-gl-js/v3.1.0/mapbox-gl.js"></script>
+
+</head>
+
+<body class="d-flex flex-column vh-100">
+
+    <script src="https://api.mapbox.com/mapbox-gl-js/plugins/mapbox-gl-geocoder/v5.0.0/mapbox-gl-geocoder.min.js"></script>
+    <link rel="stylesheet" href="https://api.mapbox.com/mapbox-gl-js/plugins/mapbox-gl-geocoder/v5.0.0/mapbox-gl-geocoder.css" type="text/css">
+
+    <script>
+        const mapboxToken = '<%- process.env.MAPBOX_TOKEN %>';
+        const mapData = <%- JSON.stringify(mapData) %>;
+    </script>
+
+    <%- include('../partials/navbar') %>
+
+    <div>
+        <div id="map" style="width: 100%; min-width: 340px; height: 43vh;"></div>
+    </div>
+    
+    <main class="container my-5">
+        
+        <%- include('../partials/flash') %>
+        <div class="min-width-limit col-xxl-10 offset-xxl-1" id="campList">
+
+            <h1 class="mb-4">ALL CAMPGROUNDS</h1>
+    
+            <% for (let campground of campgrounds) { %>
+    
+                <div class="card mb-3">
+                    <div class="row">
+                        <div class="col-md-4">
+                            <img class="img-fluid" src="<%= campground.images.length>0 ? campground.images[campground.images.length-1].urlResized800x600 : 'https://res.cloudinary.com/dldtukwsp/image/upload/c_fill,h_600,w_800/v1705779950/Campgrounds/br0r5upml7kcttk9bctt.jpg' %>" alt="" style="border-radius: 4px;">
+                        </div>
+                        <div class="col-md-8 d-flex flex-column justify-content-between">
+                            <div class="card-body">
+                                <h5 class="card-title"><%= campground.title %></h5>
+                                <p class="card-text mb-2 cuttoff-text"><%= campground.description %></p>
+                                <p class="card-text">
+                                    <small class="text-muted hide-location"><%= campground.location %></small>
+                                </p>
+                            </div>
+                            <div class="d-flex justify-content-end index-btn" style="margin: 0 15px 13px;">
+                                <a class="btn btn-success" href="/campgrounds/<%= campground._id %>">View <%= campground.title %></a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+    
+            <% } %>
+            
+        </div>
+
+        <div class="text-center mt-4">
+            <button id="loadMoreBtn" class="btn btn-success px-3 py-2" style="line-height: 14px;">Load More<br>◡</button>
+        </div>
+
+    </main>
+
+    <a href="#" id="floatingBtn" class="btn btn-success py-2" hidden>Top</a>
+
+    <%- include('../partials/footer') %>
+
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>
+    <script src="/javascripts/indexPageMap.js"></script>
+    <script src="/javascripts/loadMore.js"></script>
+    <script src="/javascripts/floatingBtn.js"></script>
+
+</body>
+</html>
+
+
+
+    

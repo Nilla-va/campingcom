@@ -1,0 +1,27 @@
+
+<% if (success && success.length) { %>
+
+    <div class="alert alert-success alert-dismissible fade show mb-4 min-width-limit col-xxl-10 offset-xxl-1" role="alert">  <!-- 스크린리더 사용자를 위한 role -->
+        <p class="mb-0">⛺ <%= success %></p>
+        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+    </div>
+
+<% } %>
+
+<% if (warning && warning.length) { %>
+
+    <div class="alert alert-warning alert-dismissible fade show mb-4 min-width-limit col-xxl-10 offset-xxl-1" role="alert">
+        <p class="mb-0">⭐ <%= warning %></p>
+        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+    </div>
+
+<% } %>
+
+<% if (danger && danger.length) { %>
+
+    <div class="alert alert-danger alert-dismissible fade show mb-4 min-width-limit col-xxl-10 offset-xxl-1" role="alert">
+        <p class="mb-0">🐞 <%= danger %></p>
+        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+    </div>
+
+<% } %>

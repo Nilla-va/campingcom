@@ -1,0 +1,15 @@
+
+    <% layout('layouts/boilerplate') %>
+
+    <!-- 부트스트랩 Alerts 항목에서 긁어와서 수정한 코드 -->
+
+    <div class="alert alert-danger" role="alert">
+        <h4 class="alert-heading"><%= status %> | <%= err.message %></h4>
+        <p style="font-size: 100px; text-align: center;">😦😞🤨🥲😭😵</p>
+        <hr>
+        <p class="mb-0"><%= err.name %></p>
+        <hr>
+        <% if (process.env.NODE_ENV !== 'production') { %>
+        <p class="mb-0"><%= err.stack %></p>
+        <% } %>
+    </div>

@@ -1,0 +1,50 @@
+    
+    <% layout('layouts/boilerplate-fullbg') %>
+
+    <div class="row">
+
+        <div class="col-md-6 offset-md-3" style="min-width: 320px; max-width: 1176px">
+
+            <%- include('../partials/flash') %>
+
+            <h1 class="text-center mb-4">Edit Campground</h1>
+
+            <form action="/campgrounds/<%= campground._id %>?_method=PUT" method="POST" id="campForm" class="col-xxl-10 offset-xxl-1" novalidate>
+                
+                <div class="mb-3">
+                    <label class="form-label" for="title">Title</label>
+                    <input class="form-control" type="text" name="campground[title]" id="title" value="<%= campground.title %>" required>
+                </div>
+                
+                <div class="mb-3">
+                    <label class="form-label" for="location">Location</label>
+                    <input class="form-control" type="text" name="campground[location]" id="location" value="<%= campground.location %>" required>
+                </div>
+                
+                <div class="mb-3">
+                    <label class="form-label" for="price">Price</label>
+                    <div class="input-group mb-3">
+                        <span class="input-group-text" id="price-label">$</span>
+                        <input type="text" class="form-control" name="campground[price]" id="price" placeholder="0.00" aria-label="price" aria-describedby="price-label"  value="<%= campground.price %>" required>
+                    </div>
+                </div>
+                
+                <div class="mb-3">
+                    <label class="form-label" for="description">Description</label>
+                    <textarea class="form-control" rows="5" maxlength="700" name="campground[description]" id="description" required><%= campground.description %></textarea>
+                </div>
+                
+                <div class="my-4 d-flex justify-content-between">
+                    <a class="btn btn-success" href="/campgrounds/<%= campground._id %>">Back</a>
+                    <button class="btn btn-success">Update Info</button>
+                </div>
+
+            </form>
+
+        </div>
+
+    </div>
+
+
+    <script src="/javascripts/validateFormCampground.js"></script>
+

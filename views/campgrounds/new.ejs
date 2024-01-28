@@ -1,0 +1,62 @@
+
+    <% layout('layouts/boilerplate-fullbg') %>
+
+    <div class="row">
+
+        <div class="col-md-6 offset-md-3" style="min-width: 320px; max-width: 1176px;">
+
+            <%- include('../partials/flash') %>
+
+            <h1 class="text-center mb-4">New Campground</h1>
+
+            <form action="/campgrounds" method="POST" class="col-xxl-10 offset-xxl-1" id="campForm" enctype="multipart/form-data" novalidate>
+                
+                <div class="mb-3">
+                    <label class="form-label" for="title">Title</label>
+                    <input class="form-control" type="text" name="campground[title]" id="title" maxlength="50" required>
+                </div>
+
+                <div class="mb-3">
+                    <label class="form-label" for="images">Add Images</label>
+                    <input class="form-control" type="file" name="campground[image]" id="images" multiple required>
+                </div>
+
+                <div class="mb-3">
+                    <label class="form-label" for="location">Location</label>
+                    <input class="form-control" type="text" name="campground[location]" id="location" required>
+                </div>
+
+                <div class="mb-3">
+                    <label class="form-label" for="price">Price (per night)</label>
+                    <div class="input-group mb-3">
+                        <span class="input-group-text" id="price-label">$</span>
+                        <input type="text" class="form-control" name="campground[price]" id="price" placeholder="0.00" aria-label="price" aria-describedby="price-label" required>
+                    </div>
+                </div>
+
+                <div class="mb-3">
+                    <label class="form-label" for="description">Description</label>
+                    <textarea class="form-control" rows="3" maxlength="700" name="campground[description]" id="description" required></textarea>
+                </div>
+
+                <div class="my-4 d-flex justify-content-between">
+                    <a class="btn btn-success" href="/campgrounds">Cancel</a>
+                    <button id="submit" class="btn btn-success">Add Campground</button>
+                    <button id="uploading" class="btn btn-success" type="button" disabled hidden>
+                        <span class="spinner-border spinner-border-sm" aria-hidden="true"></span>
+                        <span role="status">Uploading...</span>
+                    </button>
+                </div>
+
+            </form>
+
+        </div>
+
+        <div class="col-xxl-1"></div>
+
+    </div>
+
+    <script src="/javascripts/uploadLimit.js"></script>
+    <script src="/javascripts/validateFormCampground.js"></script>
+
+
