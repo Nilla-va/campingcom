@@ -18,7 +18,7 @@ function loadMoreCamps() {
 
             nextCampgrounds.forEach(campground => {
 
-                console.log(campground);
+                // console.log(campground);
                 const nextCampground = document.createElement('div');
                 nextCampground.classList.add('card', 'mb-3');
 
