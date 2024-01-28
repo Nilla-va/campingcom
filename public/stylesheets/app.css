@@ -20,8 +20,8 @@ body {
 }
 
 #floatingBtn {
-    position: absolute;
-    top: 300vh;
+    position: fixed;
+    bottom: 30px;
     right: 2.5vw;
     z-index: 5;
     min-width: 50px;
@@ -29,7 +29,6 @@ body {
     border-radius: 17px;
     border: 1.5px solid white;
     line-height: 28px;
-
 }
 
 

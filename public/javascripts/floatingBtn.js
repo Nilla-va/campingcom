@@ -14,9 +14,8 @@ function floatButton() {
     if (scrollHeight > innerHeight * 2) {
         floatingBtn.removeAttribute('hidden')
     }
-
-    if (scrollY > innerHeight * 1.1) {
-        floatingBtn.style.top = `${scrollY + innerHeight - 80}px`;
+    if (scrollY < innerHeight * 1.1) {
+        floatingBtn.setAttribute('hidden', true)
     }
 
 }
