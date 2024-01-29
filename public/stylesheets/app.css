@@ -148,3 +148,19 @@ body {
 .mapboxgl-popup-content {
     padding: 5px 10px 0!important;
 }
+
+
+#date-range {
+    width: 100%;
+    border: 1px solid rgb(212, 212, 212);
+    border-radius: 5px;
+    padding: 6px 13px;
+    margin-bottom: 6px;
+    color: rgb(99, 99, 99);
+}
+#date-range:hover {
+    cursor: unset;
+}
+#date-range:focus {
+    border: 1px solid rgb(212, 212, 212);
+}
