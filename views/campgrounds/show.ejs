@@ -7,7 +7,7 @@
         const mapboxToken = '<%- process.env.MAPBOX_TOKEN %>';
         const campground = <%- JSON.stringify(campground) %>;
     </script>
-    
+
 
     <div class="row">
 
@@ -74,6 +74,18 @@
                 </ul>
 
                 <div id="map" style="height: 300px; width: 100%;"></div>
+
+
+                <% if (currentUser && !currentUser._id.equals(campground.author._id)) { %>
+                    <input class="form-control" id="datepicker" style="display: none;" />
+                    <div class="card-body">
+                        <form class="d-flex justify-content-end mb-2" action="">
+                            <input class="form-control" type="text" id="date-range" placeholder="Select dates in calendar." readonly />
+                            <button class="btn btn-success" style="height: 38px; padding: 6px 10px;">Reserve</button>
+                        </form>
+                    </div>
+                <% } %>
+
 
                 <% if (currentUser && currentUser._id.equals(campground.author._id)) { %>
                     <div class="card-body d-flex justify-content-between">
@@ -191,4 +203,7 @@
 
     <script src="/javascripts/showPageMap.js"></script>
     <script src="/javascripts/infiniteScroll.js"></script>
+
+    <script src="https://cdn.jsdelivr.net/npm/@easepick/bundle@1.2.1/dist/index.umd.min.js"></script>
+    <script src="/javascripts/rangePicker.js"></script>
 
