@@ -1,9 +1,13 @@
 
 const campList = document.getElementById('campList');
 const loadMoreBtn = document.getElementById('loadMoreBtn');
+const loading = document.getElementById('loading');
 let offset = 5;
 
 function loadMoreCamps() {
+
+    loading.removeAttribute('hidden');
+    loadMoreBtn.setAttribute('hidden', true);
 
     fetch(`/campgrounds/loadmore/${offset}`)
         .then(response => response.json())
@@ -11,10 +15,6 @@ function loadMoreCamps() {
 
             const nextCampgrounds = data.nextCampgrounds;
             const isLastPage = data.isLastPage;
-
-            if (isLastPage) {
-                loadMoreBtn.setAttribute('hidden', true);
-            }
 
             nextCampgrounds.forEach(campground => {
 
@@ -65,6 +65,13 @@ function loadMoreCamps() {
                 }
 
                 campList.appendChild(nextCampground);
+
+                loading.setAttribute('hidden', true);
+                if (isLastPage) {
+                    loadMoreBtn.setAttribute('hidden', true);
+                } else {
+                    loadMoreBtn.removeAttribute('hidden');
+                }
 
             });
 

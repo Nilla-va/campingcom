@@ -24,8 +24,24 @@
         padding-top: 6vh;
     }
 }
-@media (max-width: 400px) {
+@media (max-width: 587px) {
+    .homemsg>h1 {
+        font-size: 42px;
+    }
+    .homemsg>p {
+        font-size: 17px;
+        padding: 0 20px;
+    }
+    .btn-home {
+        background-color: rgb(241, 241, 241);
+        height: 45px;
+        font-size: 19px;
+        padding: 6px 21px;
+        margin-top: 27px;
+    }
+}
+@media (max-width: 430px) {
     .homemsg {
-        padding-top: 2vh;
+        padding-top: 3vh;
     }
 }
