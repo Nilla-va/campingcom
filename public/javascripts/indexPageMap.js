@@ -34,18 +34,18 @@ map.on('load', () => {
                 'step',
                 ['get', 'point_count'],
                 '#97c5bf',
-                10,
+                6,
                 '#c2e2de',
-                20,
+                12,
                 '#f8e6b9'
             ],
             'circle-radius': [
                 'step',
                 ['get', 'point_count'],
                 20,
-                10,
+                6,
                 31,
-                20,
+                12,
                 40
             ]
         }
@@ -92,6 +92,31 @@ map.on('load', () => {
                 });
             }
         );
+    });
+
+    map.on('mouseenter', 'unclustered-point', (e) => {
+
+        const coordinates = e.features[0].geometry.coordinates.slice();
+
+        while (Math.abs(e.lngLat.lng - coordinates[0]) > 180) {
+            coordinates[0] += e.lngLat.lng > coordinates[0] ? 360 : -360;
+        }
+
+        new mapboxgl.Popup({ offset: 7, closeOnClick: true, closeOnMove: true, closeButton: false })
+            .setLngLat(coordinates)
+            .setHTML(
+                `<p style="font-family: Rubik, 'IBM Plex Sans KR', 'Noto Sans Korean'; text-align: center;">
+                ⛺
+                <br>
+                <a class="btn btn-sm btn-info" style="min-width: 100px;" href="/campgrounds/${e.features[0].properties.id}">${e.features[0].properties.title}</a>
+                <br>
+                ${e.features[0].properties.location}
+                <br>
+                ⭐${e.features[0].properties.avgRating.toFixed(1)}&nbsp;&nbsp;|&nbsp;&nbsp;$${e.features[0].properties.price}/night &nbsp;
+                </p>`
+            )
+            .addTo(map);
+
     });
 
     map.on('click', 'unclustered-point', (e) => {

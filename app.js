@@ -1,9 +1,9 @@
 // npm init -y
 // npm i express mongoose ejs ejs-mate method-override morgan
-// npm i (cookie-parser) express-session connect-flash
+// npm i (cookie-parser) express-session connect-flash connect-mongo
 // npm i (bcrypt) passport passport-local passport-local-mongoose
 // npm i multer dotenv cloudinary multer-storage-cloudinary mapbox-gl
-// npm i express-mongo-sanitize express-validator joi sanitize-html
+// npm i express-mongo-sanitize express-validator joi sanitize-html helmet
 
 if (process.env.NODE_ENV !== 'production') {
     require('dotenv').config();
