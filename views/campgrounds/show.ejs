@@ -17,6 +17,7 @@
 
             <div class="card">
 
+                <!-- 이미지캐러셀 -->
                 <div id="carouselExampleIndicators" class="carousel slide">
 
                     <% if (campground.images.length > 1) { %>
@@ -57,6 +58,7 @@
 
                 </div>
 
+                <!-- 캠프 정보 -->
                 <div class="card-body">
                     <h5 class="card-title"><%= campground.title %></h5>
                     <p class="card-text"><%= campground.description %></p>
@@ -73,20 +75,21 @@
                     <li class="list-group-item text-muted"><%= campground.location %></li>
                 </ul>
 
+                <!-- 지도 -->
                 <div id="map" style="height: 300px; width: 100%;"></div>
 
-
-                <% if (currentUser && !currentUser._id.equals(campground.author._id)) { %>
+                <!-- 예약 -->
+                <% if (!(currentUser && currentUser._id.equals(campground.author._id))) { %>
                     <input class="form-control" id="datepicker" style="display: none;" />
                     <div class="card-body">
-                        <form class="d-flex justify-content-end mb-2" action="">
-                            <input class="form-control" type="text" id="date-range" placeholder="Select dates in calendar." readonly />
-                            <button class="btn btn-success" style="height: 38px; padding: 6px 10px;">Reserve</button>
+                        <form id="res-form" class="d-flex justify-content-end mb-2" action="">
+                            <input id="date-range" class="form-control" type="text" placeholder="Select dates in calendar." readonly />
+                            <button id="res-button" class="btn btn-success" style="height: 38px; padding: 6px 10px;">Reserve</button>
                         </form>
                     </div>
                 <% } %>
 
-
+                <!-- 캠프 편집/삭제 -->
                 <% if (currentUser && currentUser._id.equals(campground.author._id)) { %>
                     <div class="card-body d-flex justify-content-between">
                         <div>
@@ -111,6 +114,7 @@
 
             <% if (currentUser && !(currentUser._id.equals(campground.author._id))) { %>
 
+                <!-- 리뷰 작성 -->
                 <h2 class="mb-3">Leave a Review</h2>
 
                 <form class="mb-5 needs-validation" action="/campgrounds/<%= campground._id %>/reviews" method="post" novalidate>
@@ -147,6 +151,7 @@
 
             <% } %>
 
+                <!-- 리뷰 목록 -->
                 <h2 class="mb-3">Reviews</h2>
 
             <% if (!reviews.length) { %>
@@ -206,4 +211,24 @@
 
     <script src="https://cdn.jsdelivr.net/npm/@easepick/bundle@1.2.1/dist/index.umd.min.js"></script>
     <script src="/javascripts/rangePicker.js"></script>
+
+    <script>
+
+        // 예약버튼 일단 만들어놓기만 함..
+        // 나중에할일: DB스키마수정/추가, 예약관리페이지추가, 마이페이지추가, 예약및예약취소, 예약full달력표시, 로그인확인
+        const resForm = document.getElementById('res-form')
+        const resInput = document.getElementById('date-range')
+        const resBtn = document.getElementById('res-button')
+
+        resForm.addEventListener('submit', function (event) {
+            event.preventDefault();
+            if (resInput.value === "") {
+                alert('Select dates in calendar.')
+            } else {
+                alert('Sorry, reservation service is currently unavailable.\n(under development...🤥)')
+                resBtn.setAttribute('disabled', true)
+            }
+        })
+
+    </script>
 
