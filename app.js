@@ -77,7 +77,7 @@ app.use(helmet({
             defaultSrc: ["'self'"],
             scriptSrc: ["'self'", "'unsafe-inline'", "https://api.mapbox.com", "https://stackpath.bootstrapcdn.com", "https://cdn.jsdelivr.net"],
             objectSrc: ["'none'"],
-            styleSrc: ["'self'", "'unsafe-inline'", "https://stackpath.bootstrapcdn.com", "https://fonts.googleapis.com"],
+            styleSrc: ["'self'", "'unsafe-inline'", "https://stackpath.bootstrapcdn.com", "https://cdn.jsdelivr.net", "https://fonts.googleapis.com"],
             styleSrcElem: ["'self'", "'unsafe-inline'", "https://api.mapbox.com", "https://cdn.jsdelivr.net", "https://fonts.googleapis.com", "https://easepick.com"],
             workerSrc: ["blob:"],
             connectSrc: ["'self'", "https://*.tiles.mapbox.com", "https://api.mapbox.com", "https://events.mapbox.com"],
