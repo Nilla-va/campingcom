@@ -70,7 +70,7 @@ function checkScroll() {
     const scrollTop = window.scrollY || document.documentElement.scrollTop;
     const clientHeight = window.innerHeight;
 
-    if (scrollTop + clientHeight >= scrollHeight - 100) {
+    if (scrollTop + clientHeight >= scrollHeight - 10) {
         loading.style.display = 'block';
         loadMoreReviews();
     }
