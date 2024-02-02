@@ -64,15 +64,17 @@ function loadMoreReviews() {
 
 }
 
-function checkScroll() {
+async function checkScroll() {
 
     const scrollHeight = document.documentElement.scrollHeight;
     const scrollTop = window.scrollY || document.documentElement.scrollTop;
     const clientHeight = window.innerHeight;
 
     if (scrollTop + clientHeight >= scrollHeight - 10) {
+        window.removeEventListener('scroll', checkScroll);
         loading.style.display = 'block';
-        loadMoreReviews();
+        await loadMoreReviews();
+        window.addEventListener('scroll', checkScroll);
     }
 }
 
