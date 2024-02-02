@@ -14,7 +14,7 @@ username.addEventListener('input', function () {
     if (username.value.length < 2) {
         username.classList.add('is-invalid')
         username.classList.remove('is-valid')
-    } else if (username.value.length < 20) {
+    } else if (username.value.length < 16) {
         username.classList.add('is-valid')
         username.classList.remove('is-invalid')
     } else {
@@ -44,7 +44,7 @@ password.addEventListener('input', function () {
     if (password.value.length < 8) {
         password.classList.add('is-invalid')
         password.classList.remove('is-valid')
-    } else if (password.value.length < 30) {
+    } else if (password.value.length < 31) {
         password.classList.add('is-valid')
         password.classList.remove('is-invalid')
     } else {
