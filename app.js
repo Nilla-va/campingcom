@@ -1,9 +1,9 @@
 // npm init -y
 // npm i express mongoose ejs ejs-mate method-override morgan
-// npm i (cookie-parser) express-session connect-flash
+// npm i (cookie-parser) express-session connect-flash connect-mongo
 // npm i (bcrypt) passport passport-local passport-local-mongoose
 // npm i multer dotenv cloudinary multer-storage-cloudinary mapbox-gl
-// npm i express-mongo-sanitize express-validator joi sanitize-html
+// npm i express-mongo-sanitize express-validator joi sanitize-html helmet
 
 if (process.env.NODE_ENV !== 'production') {
     require('dotenv').config();
@@ -77,8 +77,8 @@ app.use(helmet({
             defaultSrc: ["'self'"],
             scriptSrc: ["'self'", "'unsafe-inline'", "https://api.mapbox.com", "https://stackpath.bootstrapcdn.com", "https://cdn.jsdelivr.net"],
             objectSrc: ["'none'"],
-            styleSrc: ["'self'", "'unsafe-inline'", "https://stackpath.bootstrapcdn.com", "https://fonts.googleapis.com"],
-            styleSrcElem: ["'self'", "'unsafe-inline'", "https://api.mapbox.com", "https://cdn.jsdelivr.net", "https://fonts.googleapis.com"],
+            styleSrc: ["'self'", "'unsafe-inline'", "https://stackpath.bootstrapcdn.com", "https://cdn.jsdelivr.net", "https://fonts.googleapis.com", "https://api.mapbox.com", "https://easepick.com"],
+            styleSrcElem: ["'self'", "'unsafe-inline'", "https://api.mapbox.com", "https://cdn.jsdelivr.net", "https://fonts.googleapis.com", "https://easepick.com"],
             workerSrc: ["blob:"],
             connectSrc: ["'self'", "https://*.tiles.mapbox.com", "https://api.mapbox.com", "https://events.mapbox.com"],
             imgSrc: ["'self'", "blob:", "data:", "https://res.cloudinary.com"],
