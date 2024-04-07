@@ -5,20 +5,20 @@
 
 -----------------------------
 
-[클라우드DB]
+## [클라우드DB]
 
 
 Database서버를 집컴으로 할수는없으니.. 클라우드서비스를 써보자
 MongoDB Atlas 가입하고 사용설정하는건 예전에 해봄.
 
 
-# before: 로컬 몽고 접속
+### before: 로컬 몽고 접속
 
     const dbUrl = 'mongodb://127.0.0.1:27017/yelp-camp';
     await mongoose.connect(dbUrl, {});
 
 
-# after: 클라우드 몽고 접속
+### after: 클라우드 몽고 접속
 
     // 먼저 .env파일에 DB연결url 환경변수 등록
     DB_URL=mongodb+srv://admin:<admin의비밀번호>@cluster0.jmdnetw.mongodb.net/<데이터베이스명>?retryWrites=true&w=majority
@@ -28,14 +28,14 @@ MongoDB Atlas 가입하고 사용설정하는건 예전에 해봄.
 
 
 
-[세션저장소]
+## [세션저장소]
 
 
 개발중에는 세션정보가 메모리에 저장되는게 디폴트였는데
 프로덕션환경에서는 그렇게 할 수 없으니 Mongo의 세션저장소를 써보자
 
 
-# before: 메모리저장소 사용
+### before: 메모리저장소 사용
 
     const sessionConfig = {  // resave랑 saveUninitialized는 내가 쓰는 세션저장소에 따라 설정을 다르게해야할거임..
         secret: 'key_for_signed_sessioncookies',
@@ -52,7 +52,7 @@ MongoDB Atlas 가입하고 사용설정하는건 예전에 해봄.
     app.use(session(sessionConfig))
 
 
-# after: 몽고 세션저장소 사용
+### after: 몽고 세션저장소 사용
 
 connect-mongo 패키지 :
 MongoDB session store for Connect/Express written in Typescript.

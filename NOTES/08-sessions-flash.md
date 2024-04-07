@@ -1,5 +1,5 @@
 
-[세션]
+## [세션]
 
 쿠키가 client-side 데이터저장이라면(사용자의 브라우저 파일에 저장),
 세션은 server-side 데이터저장으로(서버에 저장), 원래 stateless인 HTTP를 stateful하게 만든다.
@@ -27,7 +27,7 @@
 
 -----------------------------
 
-# express-session
+### express-session
 
 npm i express-session  (참고로 버전1.5.0부터는 쿠키파서 없어도 익스프레스세션 쓸수있다고함)
 const session = require('express-session')
@@ -60,7 +60,7 @@ https://expressjs.com/en/resources/middleware/session.html 참고.
 
 
 
-# 세션에 데이터 저장 및 꺼내오기
+### 세션에 데이터 저장 및 꺼내오기
 
 세션을 이용해서 유저가 이 페이지에 접속한 횟수를 띄워주자.
 사용자는 이 페이지가 열리기 전 이미 쿠키를 받기 때문에, req.session 안에는 sid가 들어있음.
@@ -78,7 +78,7 @@ req.session.프로퍼티명 을 통해 해당sid에 대해 데이터 저장 및 
     })
 
 
-# 세션데이터 삭제 및 세션파괴
+### 세션데이터 삭제 및 세션파괴
 
 (저렇게 생긴 문법이 있다고??ㄷ).. 근데 아무튼 저렇게하면 저장된 해당데이터 삭제됨
 
@@ -93,10 +93,10 @@ req.session.프로퍼티명 을 통해 해당sid에 대해 데이터 저장 및 
 
 -----------------------------
 
-[플래시]
+## [플래시]
 
 
-# connect-flash
+### connect-flash
 
 플래시는 메시지를 저장하기 위해 쓰이는 세션 안의 특별한 영역임.
 주로 redirect와 조합해 사용자에게 메시지를 출력해 내보내는 데 사용.
@@ -122,7 +122,7 @@ app.use(flash())  // 이제 모든 라우트에 대한 요청에 req.flash() 메
     })
 
 
-# res.locals
+### res.locals
 
 만약 단순히 res.send() 로 플래시메시지를 출력하는게 아니라
 res.render()로 뷰페이지에서 플래시메시지를 받아 렌더링하게 할거라면

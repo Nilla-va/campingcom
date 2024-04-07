@@ -1,8 +1,8 @@
 
-[데이터모델]
+## [데이터모델]
 
 
-# 데이터 관계
+### 데이터 관계
 
 one to few  (예: 유저와 그 유저의 배송지주소)
 one to many  (예: 대학교와 그 학교의 학생)
@@ -11,7 +11,7 @@ one to 'bajillions(or squillions)'  (예: 어떤 고인물유저의 수십년간
 
 -----------------------------
 
-# 모델링하는 여러 방법들
+### 모델링하는 여러 방법들
 
 => 몽고는 RDB에 비해 자유도가 매우 높아
 똑같은 데이터를 구조화하는 방법이 너무 다양해서
@@ -61,7 +61,7 @@ https://www.mongodb.com/blog/post/6-rules-of-thumb-for-mongodb-schema-design 참
 
 -----------------------------
 
-# 모델과 모델 연결하기
+### 모델과 모델 연결하기
 
 옵젝ID로 다른 모델을 참조하는 방법
 
@@ -110,7 +110,7 @@ https://www.mongodb.com/blog/post/6-rules-of-thumb-for-mongodb-schema-design 참
     await story1.save();
 
 
-# POPULATE
+### POPULATE
 
 (채워넣기 정도의 의미로 보면 될 듯;)
 
@@ -137,7 +137,7 @@ https://mongoosejs.com/docs/populate.html 참고.
 
 -----------------------------
 
-# 연결된 모델이 있는 경우의 DELETE
+### 연결된 모델이 있는 경우의 DELETE
 
 만약 특정 유저를 삭제한다면 그 유저의 게시글,댓글 등등을 함께 삭제해야할 수 있다.
 방법은 2가지임.

@@ -1,5 +1,5 @@
 
-[에러처리]
+## [에러처리]
 
 Express에는 내장된 디폴트에러처리기가 있음
 https://expressjs.com/en/guide/error-handling.html 참고
@@ -34,12 +34,12 @@ err.name (이건 특히 mongoose가 발생시킨 오류가 어떤종류의 오�
 어디론가로 리다이렉트 할수도 있고..)
 
 
-# 단순 에러 던지기 :
+### 단순 에러 던지기 :
 
     throw new Error('message')   <-- 익스프레스가 알아서 캐치함.
 
 
-# 커스텀에러 던지기 :
+### 커스텀에러 던지기 :
 
     class AppError extends Error {
         constructor(status, message) {
@@ -52,7 +52,7 @@ err.name (이건 특히 mongoose가 발생시킨 오류가 어떤종류의 오�
     throw new AppError(401, 'message')   <-- 이것도 Error를 상속한거니까 익스프레스가 알아서 캐치함.
 
 
-# Async함수(라우트핸들러나 미들웨어에 의해 발동된) 내에서 에러처리 :
+### Async함수(라우트핸들러나 미들웨어에 의해 발동된) 내에서 에러처리 :
 
     DB조작함수 및 각종API들은 거의 다 async이기 때문에 중요한 내용임..
 
@@ -88,7 +88,7 @@ err.name (이건 특히 mongoose가 발생시킨 오류가 어떤종류의 오�
         강의듣고있는 2024.1 현재 익스프레스4.18.1
 
 
-# 모든url공통 에러처리미들웨어 작성 :
+### 모든url공통 에러처리미들웨어 작성 :
 
     만약 특정 라우트에 에러던지는 미들웨어가 따로 있다면 거길 먼저 거친다음 err정보를 가지고 여기로 넘어옴.
 
@@ -107,7 +107,7 @@ err.name (이건 특히 mongoose가 발생시킨 오류가 어떤종류의 오�
     라우터들 맨 아래에다 둬야 적용됨.
 
 
-# 몽구스가 발생시킨 에러 종류별로 처리 :
+### 몽구스가 발생시킨 에러 종류별로 처리 :
 
     const handleValidationErr = err => {
         console.dir(err)  // 이 내용도 한번 쭉 보셈.

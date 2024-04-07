@@ -1,5 +1,5 @@
 
-[인증구현-Passport]
+## [인증구현-Passport]
 
 앞에서는 bcrypt를 이용해 직접 인증절차를 만들어봤는데,
 이제 원리는 아니까 노드용 Auth라이브러리인 Passport를 이용하자..
@@ -15,11 +15,10 @@ https://github.com/saintedlama/passport-local-mongoose 참고.
 
 -----------------------------
 
-[passport]
-[passport-local-mongoose]
+## [passport] [passport-local-mongoose]
 
 
-# 메인 파일에서
+### 메인 파일에서
 
 express와 express-session은 이미 설치되어있다고 치고
 
@@ -32,7 +31,7 @@ express와 express-session은 이미 설치되어있다고 치고
 
 
 그리고 app.use에 패스포트초기화 메서드와 로그인유지세션을쓰기위한 메서드 넣어줌..
-(주의❗반드시 익스프레스세션의 session()코드 '아래'에 넣어야 로그인세션이 올바른 순서로 저장됨)
+(주의! 반드시 익스프레스세션의 session()코드 '아래'에 넣어야 로그인세션이 올바른 순서로 저장됨)
 
     app.use(session(sessionConfig))
     밑에
@@ -49,7 +48,7 @@ express와 express-session은 이미 설치되어있다고 치고
 
 
 
-# 모델 파일에서
+### 모델 파일에서
 
 패스포트-로컬 몽구스를 쓰면 스키마 생성방식도 달라짐.
 
@@ -79,7 +78,7 @@ https://github.com/saintedlama/passport-local-mongoose 참고.
 
 
 
-# 라우터 파일에서
+### 라우터 파일에서
 
 라우트를 분리한 경우 여기에도 패스포트 임포트해줘야함.
 패스포트-로컬 몽구스가 정적메서드들을 추가해놓은 User모델도 임포트.
@@ -154,7 +153,7 @@ passport.authenticate는 인증이 완료되면 req.login()을 자동으로 호�
 
 -----------------------------
 
-[미들웨어들]
+## [미들웨어들]
 
 
 여러 라우터파일에 공통적용될만한 미들웨어들은
@@ -162,7 +161,7 @@ passport.authenticate는 인증이 완료되면 req.login()을 자동으로 호�
 middleware.js에 따로 모아두고 각라우터파일에서 필요한 미들웨어명만 임포트.
 
 
-# 현재로그인된사용자
+### 현재로그인된사용자
 
 req.user옵젝에는 로그인된 사용자의 데이터(비번은제외)가 들어있음. 로그아웃상태라면 undefined
 모든 라우트에 플래시메시지 전달하는 데 썼던 그 미들웨어에
@@ -177,7 +176,7 @@ req.user옵젝에는 로그인된 사용자의 데이터(비번은제외)가 들
     })
 
 
-# 로그인확인
+### 로그인확인
 
 req.isAuthenticated()로 로그인한(=인증된) 상태인지 확인 후, 미인증상태라면
 현재머물던페이지 url을 세션에 저장해놓고 로그인페이지로 리디렉트시키는 미들웨어
@@ -193,7 +192,7 @@ req.isAuthenticated()로 로그인한(=인증된) 상태인지 확인 후, 미�
     }
 
 
-# 이전페이지기억
+### 이전페이지기억
 
 (이 미들웨어는 사실 저 위에있는 로그인확인 미들웨어와 이어지는 내용임.)
 
@@ -212,7 +211,7 @@ module.exports.storeReturnTo = (req, res, next) => {
 
 -----------------------------
 
-[serialize란?]
+## [serialize란?]
 
 직렬화(Serialize) :
 프로그램의 object에 담긴 데이터를 어떤 외부 파일에 write 및 전송하는 것

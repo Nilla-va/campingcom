@@ -1,5 +1,5 @@
 
-[미들웨어]
+## [미들웨어]
 
 요청-응답 '사이'에 실행되는 함수.
 (그러므로 미들웨어 안에서 res.send나 res.render 등으로 뭐라도 '응답'을 해버리면 거기서 끝나버리므로 안됨)
@@ -8,7 +8,7 @@ express.static  express.json  express.urlencoded
 얘네들 다 익스프레스의 빌트인 미들웨어임.
 
 -----------------------------
-# 방법 1
+### 방법 1
 
 모든 url 접속시 공통적으로 수행해야하는 작업(로그인여부 체크, 시간띄우기 등)은
 미들웨어 함수를 만들어 app.get(‘/url’, [함수명1, 함수명2], (req, res)=>{ })
@@ -23,7 +23,7 @@ express.static  express.json  express.urlencoded
     }
 
 -----------------------------
-# 방법 2
+### 방법 2
 
 근데 저것도 API가 수백개면 번거로우니까 그냥
 서버파일 위쪽부분에 app.use(‘/적용할url’, 미들웨어함수명) 이렇게 해줘도 됨.
@@ -72,6 +72,6 @@ express.static  express.json  express.urlencoded
 
 
 -----------------------------
-# pre/post
+### pre/post
 
 pre, post 에 대해서는 datamodel.txt 참고

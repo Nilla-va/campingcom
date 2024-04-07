@@ -1,5 +1,5 @@
 
-DB에 이미지도 저장될까? :
+### DB에 이미지도 저장될까? :
 
 몽고DB에는 기본적으로 텍스트데이터만 저장할수있다
 (BSON의 도큐별 용량한도가 16메가라는 것부터가 한계임..)
@@ -17,9 +17,9 @@ https://cloudinary.com/documentation/transformation_reference
 
 -----------------------------
 
-[파일인풋]
+## [파일인풋]
 
-# HTML Form에서 파일입력
+### HTML Form에서 파일입력
 
 폼에 로컬파일을 선택해 입력할수있게 하려면  
 
@@ -32,9 +32,9 @@ https://cloudinary.com/documentation/transformation_reference
 
 
 
-[파싱&업로드]
+## [파싱&업로드]
 
-# Multer
+### Multer
 
 multipart폼데이터 파싱 및 업로드를 위해 많이쓰이는 패키지가 Multer임.
 https://www.npmjs.com/package/multer 참고
@@ -62,7 +62,7 @@ multiple인 경우 upload.array(), req.files 사용
     })
 
 
-# Multer-Storage-Cloudinary
+### Multer-Storage-Cloudinary
 
 Multer를 쓰면서 업로드장소가 Cloudinary인 경우 이 저장엔진을 쓰면 편함.
 https://www.npmjs.com/package/multer-storage-cloudinary 참고
@@ -106,15 +106,15 @@ fieldname(name속성값), originalname(원본파일명), path(저장한파일의
 
 
 
-[궁금한점]
+## [궁금한점]
 
-# 몽구스스키마, joi스키마 수정필요
+### 몽구스스키마, joi스키마 수정필요
 
 몽고DB에는 어차피 문자열만 넣을거니까 별 문제 없는데..
 조이스키마는 어떻게 작성해야하는거임?==
 req.files에 들어가는 필드는 제외하고 req.body에 들어가는 필드만 작성해야하나??
 
-# 업로드미들웨어와 유효성검사미들웨어 순서 문제
+### 업로드미들웨어와 유효성검사미들웨어 순서 문제
 
 multer 파서는 파싱과 업로드를 동시에 한다는 게 문제인데..
 파싱된 req.body가 있어야만 유효성검사가 가능하므로
